@@ -1,9 +1,12 @@
+import 'aos/dist/aos.css';
+import 'vue-flash-message/dist/vue-flash-message.min.css';
+
 import Vue from 'vue';
 import * as VueGoogleMaps from 'vue2-google-maps';
 import Vuelidate from 'vuelidate';
 import VueScrollTo from 'vue-scrollto';
 import AOS from 'aos';
-import 'aos/dist/aos.css';
+import VueFlashMessage from 'vue-flash-message';
 
 import App from './App.vue';
 import store from './store';
@@ -16,6 +19,7 @@ Vue.use(VueGoogleMaps, {
         libraries: 'places',
     },
 });
+Vue.use(VueFlashMessage);
 
 Vue.config.productionTip = false;
 

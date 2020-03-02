@@ -12,6 +12,14 @@
 
     .form {
         width: calc(50% - 40px);
+
+        @media screen and (max-width: $bp-tablet-mini) {
+            width: 70%;
+        }
+
+        @media screen and (max-width: $bp-phone-xs) {
+            width: 100%;
+        }
     }
 
     .form-field {
@@ -34,7 +42,8 @@
         input {
             width: calc(100% - 98px);
             background-color: transparent;
-            border: none;
+            border: 0;
+            outline: none;
             color: white;
             @extend %p1;
         }
@@ -116,6 +125,11 @@
         font-weight: 400;
         letter-spacing: 1.54px;
         position: relative;
+        outline: none;
+
+        @media screen and (max-width: $bp-tablet-mini) {
+            margin: 0 auto;
+        }
     }
 
     .v-spinner {
@@ -130,5 +144,30 @@
         margin-left: auto;
         @extend %p1;
         color: black;
+
+        @media screen and (max-width: $bp-tablet-mini) {
+            width: 80%;
+            margin: 30px 0 auto;
+            text-align: center;
+        }
+
+        @media screen and (max-width: $bp-phone-xs) {
+            width: 100%;
+        }
+    }
+
+    .flash__wrapper {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        max-height: 400px;
+        width: 260px;
+        -webkit-perspective: 400px;
+        perspective: 400px;
+        transition: all .5s;
+    }
+
+    .flash__message {
+        transition: all .5s;
     }
 }

@@ -1,9 +1,9 @@
 <template>
   <section class="s-our-offices">
     <div class="container">
-      <h3 class="title">Our Offices</h3>
+      <h3 class="title" data-aos="fade" data-aos-duration="1000">Our Offices</h3>
 
-      <div class="tabs">
+      <div class="tabs" data-aos="fade" data-aos-delay="200" data-aos-duration="1000">
         <ul>
           <li
             v-for="(tab, index) of points"
@@ -14,12 +14,16 @@
         </ul>
       </div>
 
-      <div class="info">
-        <h5 class="name">{{activePoint.name}}</h5>
-        <div class="address" v-html="activePoint.address"></div>
+      <div class="info" data-aos="fade" data-aos-delay="400" data-aos-duration="1000">
+        <swiper :options="options" ref="swiper">
+          <swiper-slide v-for="(slide, i) of points" :key="i">
+            <h5 class="name">{{slide.name}}</h5>
+            <div class="address" v-html="slide.address"></div>
+          </swiper-slide>
+        </swiper>
       </div>
     </div>
-    <div id="map">
+    <div id="map" data-aos="fade" data-aos-duration="1000">
       <GmapMap
         :center="activePoint.position || {}"
         :zoom="7"
@@ -41,6 +45,8 @@
 /* eslint-disable */
 import MapStyles from "../googleMapStyle.json";
 import Marker from "@/assets/images/marker.svg";
+import 'swiper/dist/css/swiper.css'
+import { swiper, swiperSlide } from 'vue-awesome-swiper'
 
 export default {
   name: "OurOffices",
@@ -77,8 +83,16 @@ export default {
     ],
     activePoint: {},
     MapStyles,
-    Marker
+    Marker,
+    options: {
+      allowTouchMove: false
+    }
   }),
+
+  components: {
+    swiper,
+    swiperSlide
+  },
 
   mounted() {
     this.activePoint = this.points[0];
@@ -87,6 +101,7 @@ export default {
   methods: {
     updateGeolocate(point) {
       this.activePoint = point;
+      this.$refs.swiper.swiper.slideTo(point.id);
     }
   }
 };

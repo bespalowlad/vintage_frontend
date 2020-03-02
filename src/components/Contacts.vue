@@ -1,10 +1,10 @@
 <template>
   <section class="s-contacts">
     <div class="container">
-      <h1 class="title" data-aos="fade">Contacts</h1>
+      <h1 class="title" data-aos="fade" data-aos-duration="1000">Contacts</h1>
 
       <div class="layout">
-        <div class="col">
+        <div class="col" data-aos="fade" data-aos-delay="300" data-aos-duration="1000">
           <h3 class="subtitle">
             <span>GMS</span> Headquarters</h3>
             <div class="layout">
@@ -18,7 +18,7 @@
               <div class="sub-col">
                 <div class="contact">
                   <span>Email</span>
-                  <a href="mail:info@gms-worldwide.com">info@gms-worldwide.com</a>
+                  <a href="mailto:info@gms-worldwide.com">info@gms-worldwide.com</a>
                 </div>
                 <div class="contact">
                   <span>Send message</span>
@@ -32,7 +32,7 @@
             </div>
         </div>
 
-        <div class="col">
+        <div class="col" data-aos="fade" data-aos-delay="500" data-aos-duration="1000">
           <h3 class="subtitle">
             Technical support <span>24/7</span>
           </h3>
