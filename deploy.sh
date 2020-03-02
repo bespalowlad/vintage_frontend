@@ -7,13 +7,13 @@ npm run lint
 echo Building. this may take a minute... 
 npm run build 
 
-# if you are deploying to a custom domain add a CNAME (uncomment the next 3 lines) 
-#cd docs 
-#echo 'yourcustomdomain.com' > CNAME 
-#cd - 
+# navigate into the build output directory
+cd dist
 
 # deploy 
-echo Deploying.. 
-git add -A 
-git commit -m 'deploy' 
-git push -f https://github.com/bespalowlad/vintage_frontend.git master
+git init
+git add -A
+git commit -m 'deploy'
+git push -f https://github.com/bespalowlad/vintage_frontend.git master:gh-pages
+
+cd -
